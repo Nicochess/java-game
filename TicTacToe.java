@@ -28,19 +28,19 @@ public class TicTacToe implements ActionListener {
     //This is a constructor
     TicTacToe(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 800);
+        frame.setSize(700, 700);
         frame.getContentPane().setBackground(new Color(50,50,50));
         frame.setLayout(new BorderLayout());
         frame.setVisible(true);
 
         textfield.setBackground(new Color(25,25,25));
-        textfield.setForeground(new Color(25,255,0));
-        textfield.setFont(new Font("Roboto",Font.BOLD, 75));
+        textfield.setForeground(new Color(25,25,25));
+        textfield.setFont(new Font("Roboto",Font.BOLD, 55));
         textfield.setHorizontalAlignment(JLabel.CENTER);
         textfield.setText("Jogo da Velha");
 
         title_panel.setLayout(new BorderLayout());
-        title_panel.setBounds(0,0,800,100);
+        title_panel.setBounds(0,0,700,100);
 
         button_panel.setLayout(new GridLayout(3,3));
         button_panel.setBackground(new Color(150,150,150));
@@ -48,7 +48,7 @@ public class TicTacToe implements ActionListener {
         for(int i = 0; i < 9; i++){
             buttons[i] = new JButton();
             button_panel.add(buttons[i]);
-            buttons[i].setFont(new Font("Roboto", Font.BOLD, 120));
+            buttons[i].setFont(new Font("Roboto", Font.BOLD, 100));
             buttons[i].setFocusable(false);
             buttons[i].addActionListener(this);
         }
@@ -164,6 +164,7 @@ public class TicTacToe implements ActionListener {
         }
 
         textfield.setText("X venceu!");
+        restartGame();
     }
 
     public void oWins(int a, int b,int c){
@@ -176,6 +177,15 @@ public class TicTacToe implements ActionListener {
         }
 
         textfield.setText("O venceu!");
+        restartGame();
+    }
+
+    public void restartGame(){
+        for(int i = 0; i < 9; i++){
+            buttons[i].setBackground(new JButton().getBackground());
+            buttons[i].setEnabled(true);
+            buttons[i].setText("");
+        }
     }
 
 }
