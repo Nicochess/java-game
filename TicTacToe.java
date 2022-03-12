@@ -155,29 +155,13 @@ public class TicTacToe implements ActionListener {
     }
 
     public void xWins(int a, int b,int c){
-        buttons[a].setBackground(Color.GREEN);
-        buttons[b].setBackground(Color.GREEN);
-        buttons[c].setBackground(Color.GREEN);
-
-        for(int i = 0; i < 9; i++){
-            buttons[i].setEnabled(false);
-        }
-
+        setWinnerChoice(a,b,c);
         textfield.setText("X venceu!");
-        restartGame();
     }
 
     public void oWins(int a, int b,int c){
-        buttons[a].setBackground(Color.GREEN);
-        buttons[b].setBackground(Color.GREEN);
-        buttons[c].setBackground(Color.GREEN);
-
-        for(int i = 0; i < 9; i++){
-            buttons[i].setEnabled(false);
-        }
-
+        setWinnerChoice(a,b,c);
         textfield.setText("O venceu!");
-        restartGame();
     }
 
     public void restartGame(){
@@ -185,6 +169,16 @@ public class TicTacToe implements ActionListener {
             buttons[i].setBackground(new JButton().getBackground());
             buttons[i].setEnabled(true);
             buttons[i].setText("");
+        }
+    }
+
+    public void setWinnerChoice(int a, int b, int c){
+        buttons[a].setBackground(Color.GREEN);
+        buttons[b].setBackground(Color.GREEN);
+        buttons[c].setBackground(Color.GREEN);
+
+        for(int i = 0; i < 9; i++){
+            buttons[i].setEnabled(false);
         }
     }
 
